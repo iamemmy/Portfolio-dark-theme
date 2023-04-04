@@ -1,0 +1,132 @@
+//*** CSS DEFAULT STYLING ***//
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+
+    // outline: 1px solid green;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+//*** UTILITIES **//
+.btn {
+    background-color:#FFFFFF;
+    color: #000000;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.625rem 1.25rem;
+    border-radius: 310rem;
+    transition: all .3s;
+    letter-spacing: 0.1rem;
+}
+
+.btn:hover {
+    transform: scale(1.15);
+}
+
+.u-bold {
+    font-weight: 500;
+}
+
+.u-bolder {
+    font-weight: 700;
+}
+
+.u-yellow {
+    color: #ffff00;
+}
+
+//*** VARIABLE ***//
+$color: (
+    color01: #000000,
+    color02: #FFFFFF,
+    color03: #ffe60036,
+    color04: #ffff00,
+    color05: #00000073,
+    color06: #ffffff1a
+);
+
+$opacity: (
+    hover01: 0.2,
+    hover02: 0.1,
+    none: 0
+);
+
+
+//*** FUNCTIONS ***//
+@function setColor($key) {
+    @return map-get($color, $key );
+};
+
+@function setOpacity($key) {
+    @return map-get($opacity, $key);
+}
+
+//*** MEDIA QUERY ***//
+@mixin mobile-sm{
+    @media (max-width: 470px){
+        @content;
+    }
+}
+
+@mixin mobile-lg{
+    @media (max-width: 620px){
+        @content;
+    }
+}
+
+@mixin portrait{
+    @media (max-width: 1010px){
+        @content;
+    }
+}
+
+@mixin landscape{
+    @media (max-width: 1215px){
+        @content;
+    }
+}
+
+
+//*** ANIMATIONS ***//
+@keyframes fade-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fade-left {
+    0% {
+        opacity: 0;
+        transform: translateX(30px) translateY(-50%) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) translateY(-50%) scale(1);
+    }
+}
